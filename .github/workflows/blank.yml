@@ -9,16 +9,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Run a multi-line script
-        run: |
-          set -x
-          
+        run: |          
 
           mkdir tmpfile
           cat filelist/*.list |grep -v "^$" > tmpfile/file.list
 
 
           cd tmpfile 
-          wget -x -i file.list
+          
+          # 即便有个别文件下载错误，也不能直接退出整个程序
+          wget -x -i file.list || true
+
           cd ..
 
           ls
