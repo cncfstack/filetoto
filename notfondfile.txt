@@ -1,0 +1,7 @@
+wget error https://cdn-images.mailchimp.com/horizontal-slim-10_7.css
+wget error https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/font-awesome.min.css
+wget error https://cdn.jsdelivr.net/npm/mermaid@%s/dist/mermaid.esm.min.mjs
+wget error https://unpkg.com/eventemitter3@latest/umd/eventemitter3.min.js
+wget error https://unpkg.com/@popperjs/core@2/dist/umd/popper.js
+wget error https://unpkg.com/web-streams-polyfill/dist/polyfill.min.js
+wget error http://unpkg.com/lru-cache@9/dist/mjs/index.min.mjs

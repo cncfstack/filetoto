@@ -1,0 +1,25 @@
+name: fileToTo
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a multi-line script
+        run: |
+          ls
+          pwd
+
+          cat filelist/*.list |grep -v "^$" > file.list
+
+          datetime=`date +%Y%m%d%H%M%S`
+          wget -x -i file.list
+          tar -czvf ${datetime}.tgz  .
+
+          wget -q -O ossutil-2.0.6-beta.01091200-linux-amd64.zip  https://gosspublic.alicdn.com/ossutil/v2-beta/2.0.6-beta.01091200/ossutil-2.0.6-beta.01091200-linux-amd64.zip
+          unzip ossutil-2.0.6-beta.01091200-linux-amd64.zip &&  chmod +x ossutil-2.0.6-beta.01091200-linux-amd64/ossutil
+
+          ./ossutil-2.0.6-beta.01091200-linux-amd64/ossutil --access-key-id ${{ secrets.ALIYUN_CYG_OSS_AK }}  --access-key-secret ${{ secrets.ALIYUN_CYG_OSS_SK }}  --endpoint ${{ secrets.ALIYUN_CYG_OSS_ENDPOINT }} --region ${{ secrets.ALIYUN_CYG_OSS_REGION }}  cp -f ${datetime}.tgz oss://cncfstack-filetoto/
