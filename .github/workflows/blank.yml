@@ -26,7 +26,7 @@ jobs:
           pwd
 
           datetime=`date +%Y%m%d%H%M%S`
-          tar -czvf ${datetime}.tgz -C tmpfile
+          tar -czvf ${datetime}.tgz -C tmpfile .
 
           wget -q -O ossutil-2.0.6-beta.01091200-linux-amd64.zip  https://gosspublic.alicdn.com/ossutil/v2-beta/2.0.6-beta.01091200/ossutil-2.0.6-beta.01091200-linux-amd64.zip
           unzip ossutil-2.0.6-beta.01091200-linux-amd64.zip &&  chmod +x ossutil-2.0.6-beta.01091200-linux-amd64/ossutil
