@@ -1,19 +1,23 @@
 #!/bin/bash -x
 
-find .  -type f > /tmp/sed-file-list
+path=$1
+
+find $path  -type f > /tmp/sed-file-list
 
 cat /tmp/sed-file-list
 
-curl -fsSL https://raw.githubusercontent.com/cncfstack/filetoto/refs/heads/main/allfile.list -o allfile.list
-curl -fsSL https://raw.githubusercontent.com/cncfstack/filetoto/refs/heads/main/alldomains -o alldomains
+cat allfile.list|awk -F'https://' '{print "s|"$0"|https://filetoto.cncfstack.com/"$2"|g"}' > /tmp/toto.sed
+cat alldomains|awk -F'https://' '{print "s|"$0"|https://filetoto.cncfstack.com/"$2"|g"}' >> /tmp/toto.sed
+cat special.list >> /tmp/toto.sed
 
-cat allfile.list|awk -F'https://' '{print "s|"$0"|https://filetoto.cncfstack.com/"$2"|g"}' > toto.sed
-cat alldomains|awk -F'https://' '{print "s|"$0"|https://filetoto.cncfstack.com/"$2"|g"}' >> toto.sed
-
-cat toto.sed
 
 # 循环依次处理可能包含外部链接的文件，并进行替换
 for file in `cat /tmp/sed-file-list`
 do
-   sudo sed -i -f toto.sed $file
+    file -b $file |grep "ASCII text"
+    if [ $? -ne 0 ];then
+        echo "not ASCII text, Just Skip: $file"
+	continue
+    fi
+   sudo sed -i -f /tmp/toto.sed $file
 done
