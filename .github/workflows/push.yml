@@ -11,7 +11,7 @@ jobs:
       - name: Run a multi-line script
         run: |          
 
-          mkdir tmpfile
+          mkdir tmpdir
           # 生成本次任务的文件
           cat newfile/*.file|grep -v "^$"|grep -v "^#" > tmpdir/file
           cat newfile/*.file-and-sed |grep -v "^$"|grep -v "^#" > tmpdir/file-and-sed
