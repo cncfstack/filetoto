@@ -15,8 +15,8 @@ jobs:
 
           mkdir tmpdir
           # 生成本次任务的文件
-          cat newfile/*.file|grep -v "^$"|grep -v "^#" > tmpdir/file
-          cat newfile/*.file-and-sed |grep -v "^$"|grep -v "^#" > tmpdir/file-and-sed
+          cat newfile/*.file|grep -v "^$"|grep -v "^#" > tmpdir/file || true
+          cat newfile/*.file-and-sed |grep -v "^$"|grep -v "^#" > tmpdir/file-and-sed || true
 
           # 进入到tmpdir目录中执行文件下载
           cd tmpdir
