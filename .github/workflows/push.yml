@@ -1,0 +1,47 @@
+name: fileToTo
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run a multi-line script
+        run: |          
+
+          mkdir tmpfile
+          # 生成本次任务的文件
+          cat newfile/*.file|grep -v "^$"|grep -v "^#" > tmpdir/file
+          cat newfile/*.file-and-sed |grep -v "^$"|grep -v "^#" > tmpdir/file-and-sed
+
+          # 进入到tmpdir目录中执行文件下载
+          cd tmpdir
+
+          # 下载普通类型的文件，即便有个别文件下载错误，也不能直接退出整个程序
+          wget -x -i file || true
+
+          # 处理特殊文件
+          # s|https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700|https://filetoto.cncfstack.com/special/googlefont-css2-family-Tajawal-wght-300-400-500-700|g
+          mkdir special
+          for f in `cat file-and-sed|grep "^s|https://"`
+          do
+              f_url=`echo $f|awk -F'|' '{print $2}'`
+              f_name=`echo $f|awk -F'|' '{$3}'|awk -F'/' '{print $NF}'`
+              wget -q -O special/$f_name $f_url
+          done
+
+          cd ..
+
+
+          datetime=`date +%Y%m%d%H%M%S`
+          tar -czvf ${datetime}.tgz -C tmpdir .
+
+          wget -q -O ossutil-2.0.6-beta.01091200-linux-amd64.zip  https://gosspublic.alicdn.com/ossutil/v2-beta/2.0.6-beta.01091200/ossutil-2.0.6-beta.01091200-linux-amd64.zip
+          unzip ossutil-2.0.6-beta.01091200-linux-amd64.zip &&  chmod +x ossutil-2.0.6-beta.01091200-linux-amd64/ossutil
+
+          ls -lh
+          pwd
+
+          ./ossutil-2.0.6-beta.01091200-linux-amd64/ossutil --access-key-id ${{ secrets.ALIYUN_CYG_OSS_AK }}  --access-key-secret ${{ secrets.ALIYUN_CYG_OSS_SK }}  --endpoint ${{ secrets.ALIYUN_CYG_OSS_ENDPOINT }} --region ${{ secrets.ALIYUN_CYG_OSS_REGION }}  cp -f ${datetime}.tgz oss://cncfstack-filetoto/
