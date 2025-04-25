@@ -142,7 +142,7 @@ https://cdn.cr-relay.com/v1/site/c3ff1a35-122c-4945-9c2a-fc368b45cf1e/signals.js
 https://d.adroll.com/consent/check/B4XQTO44VJFVDGCGM332GU
 https://ipv4.d.adroll.com/user_attrs
 https://code.jquery.com/jquery-3.3.1.min.js
-http://translate.google.com/translate_a/element.js
+https://translate.google.com/translate_a/element.js
 https://code.jquery.com/jquery-3.5.1.min.js
 https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2
 https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js
@@ -158,3 +158,4 @@ https://stackpath.bootstrapcdn.com/bootstrap/js/src/scrollspy.js
 https://stackpath.bootstrapcdn.com/bootstrap/js/src/tab.js
 https://stackpath.bootstrapcdn.com/bootstrap/js/src/tooltip.js
 https://stackpath.bootstrapcdn.com/bootstrap/js/src/util.js
+https://raw.githubusercontent.com/knative/serving/main/docs/spec/images/object_model.png

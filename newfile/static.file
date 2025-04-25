@@ -1,15 +1,1 @@
-https://code.jquery.com/jquery-3.5.1.min.js
-https://fonts.gstatic.com/s/roboto/v47/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2
-https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/alert.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/button.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/carousel.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/collapse.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/dropdown.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/index.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/modal.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/popover.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/scrollspy.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/tab.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/tooltip.js
-https://stackpath.bootstrapcdn.com/bootstrap/js/src/util.js
+https://raw.githubusercontent.com/knative/serving/main/docs/spec/images/object_model.png
