@@ -1,10 +1,1 @@
-https://cdn.cr-relay.com/v1/site/c3ff1a35-122c-4945-9c2a-fc368b45cf1e/signals.js
-https://connect.facebook.net/en_US/fbevents.js
-https://ddzuuyx7zj81k.cloudfront.net/1.0.0/attributionSnippet.js
-https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js
-https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.2.1/dist/alpine.js
-https://cdn.jsdelivr.net/npm/@docsearch/js@3
-https://code.jquery.com/jquery-3.5.1.slim.min.js
-https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js
-https://cdn.jsdelivr.net/npm/@docsearch/css@3
-https://use.fontawesome.com/releases/v5.12.1/css/all.css
+https://github.com/goharbor/harbor/releases/download/v2.13.0/harbor-offline-installer-v2.13.0.tgz
