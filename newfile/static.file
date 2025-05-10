@@ -1,1 +1,2 @@
-https://github.com/goharbor/harbor/releases/download/v2.13.0/harbor-offline-installer-v2.13.0.tgz
+https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js
+https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js
