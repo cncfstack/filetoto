@@ -26,9 +26,9 @@ jobs:
             # -np: 不要上溯到父目录。
             # --cut-dirs=1: 忽略 URL 的第一级目录。
             # -x: 强制创建目录结构。
-            wget -r -np --cut-dirs=1 -x $file
+            # -nH: 不要保存主机名作为顶级目录。
+            wget -r -np -nH -x $file
           done
-
 
           cd ..
           # 处理完成后，需要更新 files.done 文件行数
@@ -44,5 +44,5 @@ jobs:
           ls -lh
           pwd
 
-          #./ossutil-2.0.6-beta.01091200-linux-amd64/ossutil --access-key-id ${{ secrets.ALIYUN_CYG_OSS_AK }}  --access-key-secret ${{ secrets.ALIYUN_CYG_OSS_SK }}  --endpoint ${{ secrets.ALIYUN_CYG_OSS_ENDPOINT }} --region ${{ secrets.ALIYUN_CYG_OSS_REGION }}  cp -f ${datetime}.tgz oss://cncfstack-filetoto/
+          ./ossutil-2.0.6-beta.01091200-linux-amd64/ossutil --access-key-id ${{ secrets.ALIYUN_CYG_OSS_AK }}  --access-key-secret ${{ secrets.ALIYUN_CYG_OSS_SK }}  --endpoint ${{ secrets.ALIYUN_CYG_OSS_ENDPOINT }} --region ${{ secrets.ALIYUN_CYG_OSS_REGION }}  cp -f ${datetime}.tgz oss://cncfstack-filetoto/
 
