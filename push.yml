@@ -47,3 +47,4 @@ jobs:
           pwd
 
           ./ossutil-2.0.6-beta.01091200-linux-amd64/ossutil --access-key-id ${{ secrets.ALIYUN_CYG_OSS_AK }}  --access-key-secret ${{ secrets.ALIYUN_CYG_OSS_SK }}  --endpoint ${{ secrets.ALIYUN_CYG_OSS_ENDPOINT }} --region ${{ secrets.ALIYUN_CYG_OSS_REGION }}  cp -f ${datetime}.tgz oss://cncfstack-filetoto/
+
