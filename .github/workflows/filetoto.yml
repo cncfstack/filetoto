@@ -27,13 +27,16 @@ jobs:
             # --cut-dirs=1: 忽略 URL 的第一级目录。
             # -x: 强制创建目录结构。
             # -nH: 不要保存主机名作为顶级目录。
-            wget -r -np -nH -x $file
+            wget -r -np -nH -x $file || echo "wget $file failed" >> ../error.log
           done
+
+
 
           cd ..
           # 处理完成后，需要更新 files.done 文件行数
           wc -l files.list|awk '{print $1}' > files.done
-
+          
+          cat error.log
 
           datetime=`date +%Y%m%d%H%M%S`
           tar -czvf ${datetime}.tgz -C tmpdir .
